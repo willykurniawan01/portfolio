@@ -39,7 +39,14 @@
     <li class="nav-item">
       <a class="nav-link" href="tables.html">
         <i class="fas fa-fw fa-table"></i>
-        <span>Tables</span></a>
+        <span>Gallery</span></a>
+    </li>
+
+    <!-- Nav Item - Tables -->
+    <li class="nav-item">
+    <a class="nav-link" href="{{route('slider')}}">
+        <i class="fas fa-fw fa-table"></i>
+        <span>Slider</span></a>
     </li>
 
     <!-- Divider -->

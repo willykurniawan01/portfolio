@@ -34,9 +34,7 @@ Route::prefix('administrator')
         Route::get('{id}/deletepost/', 'PostController@destroy')->name('post-delete');
 
 
-        Route::get('/slider', 'SliderController@index')->name('slider');
-
-        Route::get('/tambahslider', 'SliderController@create')->name('slider-create');
+        Route::get('/slider', 'SliderController@index');
     });
 
 Auth::routes();

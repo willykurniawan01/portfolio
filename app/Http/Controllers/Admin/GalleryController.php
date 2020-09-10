@@ -4,11 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\post;
-use App\Http\Requests\Admin\PostRequest;
-use Illuminate\Support\Str;
 
-class PostController extends Controller
+class GalleryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +14,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $items = post::all();
-        return view('pages.admin.post.index', ['items' => $items]);
+        //
     }
 
     /**
@@ -28,7 +24,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.post.create');
+        //
     }
 
     /**
@@ -37,18 +33,9 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PostRequest $request)
+    public function store(Request $request)
     {
-        $data = $request->all();
-        $data['slug'] = Str::slug($request->title);
-
-        $data['picture'] = $request->file('picture')->store(
-            'assets/gallery',
-            'public'
-        );
-
-        post::create($data);
-        return redirect()->route('post');
+        //
     }
 
     /**
@@ -70,9 +57,7 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        $item = post::findOrFail($id);
-
-        return view('pages.admin.post.edit', ['item' => $item]);
+        //
     }
 
     /**
@@ -84,13 +69,7 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->all();
-        $data['slug'] = Str::slug($request->title);
-
-        $item = post::findOrFail($id);
-        $item->update($data);
-
-        return redirect()->route('post');
+        //
     }
 
     /**
@@ -101,10 +80,6 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        $item = post::findOrFail($id);
-
-        $item->delete();
-
-        return redirect()->route('post');
+        //
     }
 }

@@ -14,7 +14,7 @@
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-              <a href="{{route('post-create')}}" class="btn btn-primary mb-3">Tambah Post</a>
+              <a href="{{route('slider-create')}}" class="btn btn-primary mb-3">Tambah Slider</a>
                 <thead>
                   <tr>
                     <th width="5%">No</th>
@@ -29,7 +29,7 @@
                   <tr>
                   <td>{{$loop->iteration}}</td>
                   <td>{{$item->title}}</td>
-                  <td>{{$item->picture}}</td>
+                  <td class="text-center"><img src="{{Storage::url($item->picture)}}" style="height: 300px; width:400px;" alt=""></td>
                     <td class="text-center">
                       <a href="{{route('post-delete',$item->id)}}" class="btn btn-danger">Delete</a>
                       <a href="{{route('post-edit',$item->id)}}" class="btn btn-success">Edit</a>
@@ -38,7 +38,7 @@
                 
                   @empty
                       <tr>
-                        <td class="" colspan="4"> Data Kosong</td>
+                        <td class="text-center" colspan="4"> Data Kosong</td>
                       </tr>
                   @endforelse
                 
