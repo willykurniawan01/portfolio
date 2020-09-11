@@ -38,10 +38,10 @@
                     <textarea class="form-control" id="editor1" name="post" rows="3"></textarea>
                   </div>
                 
-                  <button type="submit" class="btn btn-lg btn-primary">
+                  <button type="submit" class="btn btn-lg btn-warning">
                       Upload
                   </button>
-                <a href="{{route('post')}}" class="btn btn-lg btn-primary">Back</a>
+                <a href="{{route('post')}}" class="btn btn-lg btn-warning">Back</a>
             </form>
     </div>
 @endsection

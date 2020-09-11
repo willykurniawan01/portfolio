@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title','Tambah Post')
+@section('title','Tambah Slider')
 
 @section('content')
     <div class="container-fluid">
@@ -15,13 +15,13 @@
             </div>
              @endif
       
-            <form action="{{route('post-store')}}" method="post" enctype="multipart/form-data">       
+            <form action="{{route('slider-store')}}" method="post" enctype="multipart/form-data">       
                 @csrf
                 <div class="input-group input-group-lg">
                     <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-lg">Greeting</span>
                     </div>
-                <input type="text" class="form-control" name="Greeting" value="{{old('Greeting')}}" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+                <input type="text" class="form-control" name="greeting" value="{{old('Greeting')}}" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
                 </div>
 
                <div class="input-group mt-4">
@@ -35,13 +35,13 @@
                 </div>
 
                 <div class="form-group mt-4">
-                    <textarea class="form-control" id="editor1" name="post" rows="3"></textarea>
+                    <textarea class="form-control" id="editor1" name="description" rows="3"></textarea>
                   </div>
                 
-                  <button type="submit" class="btn btn-lg btn-primary">
+                  <button type="submit" class="btn btn-lg btn-warning">
                       Upload
                   </button>
-                <a href="{{route('post')}}" class="btn btn-lg btn-primary">Back</a>
+                <a href="{{route('slider')}}" class="btn btn-lg btn-warning">Back</a>
             </form>
     </div>
 @endsection

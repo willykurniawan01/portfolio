@@ -37,6 +37,12 @@ Route::prefix('administrator')
         Route::get('/slider', 'SliderController@index')->name('slider');
 
         Route::get('/tambahslider', 'SliderController@create')->name('slider-create');
+
+        Route::post('/simpanslider', 'SliderController@store')->name('slider-store');
+
+        Route::get('/slider/{id}/delete', 'SliderController@destroy')->name('slider-delete');
+
+        Route::delete('/slider/{id}/edit', 'SliderController@destroy')->name('slider-edit');
     });
 
 Auth::routes();

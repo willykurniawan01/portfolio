@@ -38,7 +38,15 @@ class SliderController extends Controller
      */
     public function store(SliderRequest $request)
     {
-        //
+        $data = $request->all();
+
+        $data['picture'] = $request->file('picture')->store(
+            'assets/slider',
+            'public'
+        );
+
+        slider::create($data);
+        return redirect()->route('slider');
     }
 
     /**
@@ -83,6 +91,9 @@ class SliderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = slider::findOrFail($id);
+        $item->delete();
+
+        return redirect()->route('slider');
     }
 }

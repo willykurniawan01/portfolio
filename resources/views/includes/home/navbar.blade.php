@@ -29,7 +29,7 @@
                 <nav class="classy-navbar justify-content-between" id="alimeNav">
 
                     <!-- Logo -->
-                    <a class="nav-brand" href="./index.html"><img src="./img/core-img/logo.png" alt=""></a>
+                <a class="nav-brand" href="{{route('home')}}"><img src="{{asset('home/img/logo.png')}}" style="width: 50px; height:50px" alt=""></a>
 
                     <!-- Navbar Toggler -->
                     <div class="classy-navbar-toggler">

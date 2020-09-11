@@ -11,7 +11,7 @@
     <title>Willy kurniawan - @yield('title')</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="./img/core-img/favicon.png">
+    <link rel="icon" href="{{asset('home/img/logo.png')}}">
 
     @include('includes.home.style')
 
