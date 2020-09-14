@@ -92,6 +92,7 @@ class SliderController extends Controller
     public function destroy($id)
     {
         $item = slider::findOrFail($id);
+        unlink('storage/' . $item->picture);
         $item->delete();
 
         return redirect()->route('slider');

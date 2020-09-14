@@ -43,7 +43,7 @@ class PostController extends Controller
         $data['slug'] = Str::slug($request->title);
 
         $data['picture'] = $request->file('picture')->store(
-            'assets/gallery',
+            'assets/post',
             'public'
         );
 
@@ -82,12 +82,18 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PostRequest $request, $id)
     {
         $data = $request->all();
         $data['slug'] = Str::slug($request->title);
+        $data['picture'] = $request->file('picture')->store(
+            'assets/post',
+            'public'
+        );
 
         $item = post::findOrFail($id);
+        unlink('storage/' . $item->picture);
+
         $item->update($data);
 
         return redirect()->route('post');
@@ -102,7 +108,7 @@ class PostController extends Controller
     public function destroy($id)
     {
         $item = post::findOrFail($id);
-
+        unlink('storage/' . $item->picture);
         $item->delete();
 
         return redirect()->route('post');

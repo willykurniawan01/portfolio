@@ -2,7 +2,7 @@
   <ul class="navbar-nav bg-black sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('dashboard')}}">
       <div class="sidebar-brand-icon rotate-n-15">
       <img style="width: 50px; height:50px;" src="{{asset('home/img/logo.png')}}" alt="">
       </div>
@@ -24,10 +24,12 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-      Interface
+      Menu
     </div>
    
   
+
+
     <!-- Nav Item - Charts -->
     <li class="nav-item">
     <a class="nav-link" href="{{route('post')}}">
@@ -37,7 +39,7 @@
 
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-      <a class="nav-link" href="tables.html">
+      <a class="nav-link" href="{{route('gallery')}}">
         <i class="fas fa-fw fa-table"></i>
         <span>Gallery</span></a>
     </li>

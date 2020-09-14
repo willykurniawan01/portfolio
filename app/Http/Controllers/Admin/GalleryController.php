@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\gallery;
+use App\Http\Requests\Admin\GalleryRequest;
+use App\gallerycategory;
 
 class GalleryController extends Controller
 {
@@ -14,7 +17,9 @@ class GalleryController extends Controller
      */
     public function index()
     {
-        //
+        $category = gallerycategory::all();
+        $items = gallery::all();
+        return view('pages.admin.gallery.index', ['items' => $items, 'category' => $category]);
     }
 
     /**
@@ -24,7 +29,7 @@ class GalleryController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.admin.gallery.create');
     }
 
     /**
@@ -33,9 +38,17 @@ class GalleryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(GalleryRequest $request)
     {
-        //
+        $data = $request->all();
+        $data['picture'] = $request->file('picture')->store(
+            'assets/gallery',
+            'public'
+        );
+
+        gallery::create($data);
+
+        return redirect()->route('gallery');
     }
 
     /**
@@ -57,7 +70,8 @@ class GalleryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $item = gallery::findOrFail($id);
+        return view('pages.admin.gallery.edit', ['item' => $item]);
     }
 
     /**
@@ -67,9 +81,19 @@ class GalleryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(GalleryRequest $request, $id)
     {
-        //
+        $data = $request->all();
+        $data['picture'] = $request->file('picture')->store(
+            'assets/gallery',
+            'public'
+        );
+
+        $item = gallery::findOrFail($id);
+        unlink('storage/' . $item->picture);
+        $item->update($data);
+
+        return redirect()->route('gallery');
     }
 
     /**
@@ -80,6 +104,26 @@ class GalleryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = gallery::findOrFail($id);
+        unlink('storage/' . $item->picture);
+        $item->delete();
+
+        return redirect()->route('gallery');
+    }
+
+    public function storeCategory(Request $request)
+    {
+        $data = $request->all();
+        gallerycategory::create($data);
+
+        return redirect()->route('gallery');
+    }
+
+    public function destroyCategory(Request $request, $id)
+    {
+        $item = gallerycategory::findOrFail($id);
+        $item->delete();
+
+        return redirect()->route('gallery');
     }
 }

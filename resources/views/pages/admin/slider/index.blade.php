@@ -9,7 +9,7 @@
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
           <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-warning">Data Post</h6>
+            <h6 class="m-0 font-weight-bold text-dark">Data Slider</h6>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -18,8 +18,8 @@
                 <thead>
                   <tr>
                     <th width="5%">No</th>
-                    <th width="20%">Greeting</th>
-                    <th width="20%">Description</th>
+                    <th width="10%">Greeting</th>
+                    <th width="10%">Description</th>
                     <th width="50%">Picture</th>
                     <th width="25%">Action</th>
                   </tr>
