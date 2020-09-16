@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\post;
+use App\gallery;
+use App\slider;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -14,7 +17,18 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('pages.admin.dashboard');
+        $countPost = post::all()->count();
+        $countGallery = gallery::all()->count();
+        $countSlider = slider::all()->count();
+
+        return view(
+            'pages.admin.dashboard',
+            [
+                'countpost' => $countPost,
+                'countgallery' => $countGallery,
+                'countslider' => $countSlider
+            ]
+        );
     }
 
     /**

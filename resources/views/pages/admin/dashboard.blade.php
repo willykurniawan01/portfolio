@@ -20,8 +20,46 @@
           <div class="card-body">
             <div class="row no-gutters align-items-center">
               <div class="col mr-2">
+                <a href="{{route('post')}}">
                 <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Postingan</div>
-                <div class="h5 mb-0 font-weight-bold text-dark">10 Post</div>
+                </a>
+                <div class="h5 mb-0 font-weight-bold text-dark">{{$countpost}} Post</div>
+              </div>
+              <div class="col-auto">
+                <i class="fas fa-blog fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Earnings (Monthly) Card Example -->
+      <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-warning shadow h-100 py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+              <a href="{{route('gallery')}}">
+                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Gallery</div>
+              </a>
+                <div class="h5 mb-0 font-weight-bold text-dark">{{$countgallery}} Foto</div>
+              </div>
+              <div class="col-auto">
+                <i class="fas fa-blog fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Earnings (Monthly) Card Example -->
+      <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-warning shadow h-100 py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <a href="{{route('slider')}}">
+                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Slider</div>
+                </a>
+                <div class="h5 mb-0 font-weight-bold text-dark">{{$countslider}} Slider</div>
               </div>
               <div class="col-auto">
                 <i class="fas fa-blog fa-2x text-gray-300"></i>
