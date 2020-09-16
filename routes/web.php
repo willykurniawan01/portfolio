@@ -18,7 +18,7 @@ Route::get('/gallery', 'HomeController@gallery')->name('home-gallery');
 Route::get('/about', 'HomeController@about')->name('home-about');
 Route::get('/contact', 'HomeController@contact')->name('home-contact');
 Route::get('/blog', 'BlogController@index')->name('home-blog');
-Route::get('blog/{slug}', 'BlogController@show');
+Route::get('blog/{slug}', 'BlogController@show')->name('blog-detail');
 
 
 Route::prefix('administrator')
