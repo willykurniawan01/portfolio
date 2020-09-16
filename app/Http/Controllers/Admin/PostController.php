@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\post;
 use App\Http\Requests\Admin\PostRequest;
 use App\Http\Requests\Admin\PostUpdateRequest;
-use App\Http\Requests\PostUpdateRequest as RequestsPostUpdateRequest;
 use Illuminate\Support\Str;
 
 class PostController extends Controller
@@ -84,11 +83,12 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(RequestsPostUpdateRequest $request, $id)
+    public function update(Request $request, $id)
     {
         $item = post::findOrFail($id);
         $data = $request->all();
         $data['slug'] = Str::slug($request->title);
+
         if ($request->file('picture')) {
             unlink('storage/' . $item->picture);
             $data['picture'] = $request->file('picture')->store(
